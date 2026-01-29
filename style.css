@@ -102,6 +102,26 @@ a:hover {
   background: rgba(255,255,255,0.3);
 }
 
+/* ---------- ICONOS CONTACTO ---------- */
+.contact-icons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.contact-icons a img {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.contact-icons a img:hover {
+  transform: scale(1.2);
+  filter: brightness(0.8) invert(1);
+}
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 600px) {
   .hero h1 { font-size: 2rem; }
