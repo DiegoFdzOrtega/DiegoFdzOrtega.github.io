@@ -1,11 +1,13 @@
+/* ---------- ESTILO BASE ---------- */
 body {
   margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  background: radial-gradient(circle at bottom, #020111, #000);
+  font-family: 'Orbitron', sans-serif; /* tipografía futurista */
+  background: radial-gradient(circle at bottom, #020111, #000); /* fondo espacial oscuro */
   color: white;
   overflow-x: hidden;
 }
 
+/* ---------- HERO / BIENVENIDA ---------- */
 .hero {
   height: 100vh;
   display: flex;
@@ -13,18 +15,78 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 0 20px;
 }
 
 .hero h1 {
   font-size: 3rem;
+  margin-bottom: 20px;
 }
 
+.hero p {
+  font-size: 1.5rem;
+  color: #a0a0ff;
+}
+
+/* ---------- SECCIONES / CARDS ---------- */
 .card {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.05); /* ligero efecto vidrio */
   margin: 40px auto;
   padding: 30px;
   width: 80%;
   max-width: 800px;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0,255,255,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(0,255,255,0.5);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #80ffff;
+}
+
+/* ---------- ESTRELLAS ANIMADAS ---------- */
+.stars::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: transparent url("https://raw.githubusercontent.com/JulianLaval/canvas-particle-network/master/img/stars.png") repeat;
+  animation: moveStars 100s linear infinite;
+}
+
+@keyframes moveStars {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-500px, -500px); }
+}
+
+/* ---------- ENLACES ---------- */
+a {
+  color: #80ffff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1.2rem;
+  }
+  .card {
+    width: 90%;
+    padding: 20px;
+  }
 }
