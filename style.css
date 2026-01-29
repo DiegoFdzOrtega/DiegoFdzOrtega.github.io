@@ -1,92 +1,53 @@
-/* ---------- ESTILO BASE ---------- */
-body {
-  margin: 0;
-  font-family: 'Orbitron', sans-serif; /* tipografía futurista */
-  background: radial-gradient(circle at bottom, #020111, #000); /* fondo espacial oscuro */
-  color: white;
-  overflow-x: hidden;
+// ---------- ESTRELLAS ANIMADAS ----------
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+let w = canvas.width = window.innerWidth;
+let h = canvas.height = window.innerHeight;
+
+const stars = [];
+for(let i=0; i<200; i++){
+  stars.push({
+    x: Math.random()*w,
+    y: Math.random()*h,
+    r: Math.random()*1.5,
+    d: Math.random()*0.5
+  });
 }
 
-/* ---------- HERO / BIENVENIDA ---------- */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 20px;
+function draw(){
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle = "white";
+  ctx.beginPath();
+  stars.forEach(s=>{
+    ctx.moveTo(s.x, s.y);
+    ctx.arc(s.x, s.y, s.r, 0, Math.PI*2, true);
+  });
+  ctx.fill();
+  update();
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+let angle = 0;
+function update(){
+  angle += 0.01;
+  stars.forEach(s=>{
+    s.x += Math.sin(angle+s.d);
+    s.y += Math.cos(angle+s.d);
+    if(s.x < 0) s.x = w;
+    if(s.x > w) s.x = 0;
+    if(s.y < 0) s.y = h;
+    if(s.y > h) s.y = 0;
+  });
 }
 
-.hero p {
-  font-size: 1.5rem;
-  color: #a0a0ff;
-}
+setInterval(draw, 33);
 
-/* ---------- SECCIONES / CARDS ---------- */
-.card {
-  background: rgba(255,255,255,0.05); /* ligero efecto vidrio */
-  margin: 40px auto;
-  padding: 30px;
-  width: 80%;
-  max-width: 800px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0,255,255,0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+window.addEventListener("resize", ()=>{
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+});
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 40px rgba(0,255,255,0.5);
-}
-
-.card h2 {
-  margin-top: 0;
-  color: #80ffff;
-}
-
-/* ---------- ESTRELLAS ANIMADAS ---------- */
-.stars::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background: transparent url("https://raw.githubusercontent.com/JulianLaval/canvas-particle-network/master/img/stars.png") repeat;
-  animation: moveStars 100s linear infinite;
-}
-
-@keyframes moveStars {
-  from { transform: translate(0, 0); }
-  to { transform: translate(-500px, -500px); }
-}
-
-/* ---------- ENLACES ---------- */
-a {
-  color: #80ffff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 600px) {
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero p {
-    font-size: 1.2rem;
-  }
-  .card {
-    width: 90%;
-    padding: 20px;
-  }
+// ---------- SCROLL SUAVE ----------
+function scrollToSection(id){
+  const el = document.getElementById(id);
+  el.scrollIntoView({behavior:"smooth"});
 }
