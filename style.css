@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(circle at bottom, #020111, #000);
+  color: white;
+  overflow-x: hidden;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  margin: 40px auto;
+  padding: 30px;
+  width: 80%;
+  max-width: 800px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.2);
+}
