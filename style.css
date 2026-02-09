@@ -1,4 +1,4 @@
-/* ---------- ESTILO BASE ---------- */
+/* ---------- BASE ---------- */
 body {
   margin: 0;
   font-family: 'Orbitron', sans-serif;
@@ -7,22 +7,14 @@ body {
   overflow-x: hidden;
 }
 
-/* Canvas de estrellas */
 #stars {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Fondo detrás de todo */
-}
-
-a {
-  color: #80ffff;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
+  z-index: -1;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
 }
 
 /* ---------- MENU ---------- */
@@ -32,17 +24,19 @@ a:hover {
   right: 20px;
   display: flex;
   gap: 15px;
-  z-index: 100; /* Siempre encima de todo */
+  z-index: 100;
 }
 .menu a {
   padding: 10px 15px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
   border-radius: 10px;
-  transition: background 0.3s;
+  color: #80ffff;
+  text-decoration: none;
+  transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.1);
 }
-.menu a:hover {
-  background: rgba(255,255,255,0.3);
-}
+.menu a:hover { background: rgba(255, 255, 255, 0.2); }
 
 /* ---------- HERO ---------- */
 .hero {
@@ -52,80 +46,36 @@ a:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 0 20px;
-  position: relative;
-  z-index: 1;
 }
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-.hero p {
-  font-size: 1.5rem;
-  color: #a0a0ff;
-}
+.hero h1 { font-size: 3.5rem; text-shadow: 0 0 20px #80ffff; }
 
-/* ---------- PANEL ---------- */
+/* ---------- PANELES ---------- */
 .panel {
-  background: rgba(255,255,255,0.05);
-  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px); /* Efecto cristalizado */
+  margin: 60px auto;
   padding: 40px;
   width: 80%;
   max-width: 800px;
   border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0,255,255,0.2);
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
-  z-index: 1;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+  transition: transform 0.4s ease;
 }
-.panel:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 40px rgba(0,255,255,0.5);
-}
+.panel:hover { transform: translateY(-5px); border-color: #80ffff; }
 
-/* ---------- PROYECTOS ---------- */
-.project-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  margin-top: 20px;
-}
+.project-list { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
 .project {
-  padding: 15px;
-  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
+  color: #80ffff;
+  text-decoration: none;
   text-align: center;
-  transition: background 0.3s;
+  transition: 0.3s;
 }
-.project:hover {
-  background: rgba(255,255,255,0.3);
-}
+.project:hover { background: #80ffff; color: #000; }
 
-/* ---------- ICONOS CONTACTO ---------- */
-.contact-icons {
-  display: flex;
-  gap: 15px;       /* compacto */
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.contact-icons a img {
-  width: 25px;     /* iconos más pequeños */
-  height: 25px;
-  filter: brightness(0) invert(1);
-  transition: transform 0.3s, filter 0.3s;
-  cursor: pointer;
-}
-
-.contact-icons a img:hover {
-  transform: scale(1.3);
-  filter: brightness(0.8) invert(1);
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 600px) {
-  .hero h1 { font-size: 2rem; }
-  .hero p { font-size: 1.2rem; }
-  .panel { width: 90%; padding: 20px; }
-}
+.contact-icons { display: flex; gap: 30px; justify-content: center; margin-top: 20px; }
+.contact-icons img { width: 40px; filter: invert(1); transition: 0.3s; }
+.contact-icons img:hover { transform: scale(1.2); filter: drop-shadow(0 0 10px #80ffff) invert(1); }
