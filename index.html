@@ -4,85 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio Espacial - Diego Fdz Ortega</title>
-
-  <!-- Tipografía futurista -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Fondo de estrellas -->
   <canvas id="stars"></canvas>
 
-  <!-- Menú de navegación -->
   <nav class="menu">
-    <a href="#sobre-mi">Sobre mí</a>
-    <a href="#skills">Skills & Tech</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#contacto">Contacto</a>
+    <a href="javascript:void(0)" onclick="scrollToSection('sobre-mi')">Sobre mí</a>
+    <a href="javascript:void(0)" onclick="scrollToSection('skills')">Skills</a>
+    <a href="javascript:void(0)" onclick="scrollToSection('proyectos')">Proyectos</a>
+    <a href="javascript:void(0)" onclick="scrollToSection('contacto')">Contacto</a>
   </nav>
 
-  <!-- Hero -->
   <section class="hero">
     <h1>🚀 Hola, soy Diego</h1>
     <p>Explorando el universo del desarrollo</p>
   </section>
 
-  <!-- Panel Sobre mí -->
   <section id="sobre-mi" class="panel">
     <h2>🧑‍🚀 Sobre mí</h2>
-    <p>¡Hola! Soy Diego. Transformo la curiosidad en código. Como estudiante de DAM en Mislata, paso mis días entre estructuras de datos, interfaces de usuario y lógica de sistemas. Me apasiona el reto de aprender un nuevo lenguaje y la satisfacción de ver un proyecto cobrar vida desde la primera línea de código. Siempre estoy buscando el próximo reto para seguir creciendo como desarrollador.</p>
+    <p>Soy estudiante de DAM en Mislata. Transformo la curiosidad en código, pasando mis días entre estructuras de datos y lógica de sistemas.</p>
   </section>
 
-  <!-- Panel Skills & Tech -->
   <section id="skills" class="panel">
     <h2>💻 SKILLS & TECH</h2>
-
-    <h3>FRONTEND</h3>
-    <p>HTML5, CSS3, JavaScript, React, Vue.js. Creando interfaces modernas y responsivas.</p>
-
-    <h3>BACKEND</h3>
-    <p>Node.js, Python, APIs RESTful. Arquitecturas escalables y eficientes.</p>
-
-    <h3>DISEÑO</h3>
-    <p>UI/UX, Figma, Adobe Creative Suite. Diseños que combinan estética y funcionalidad.</p>
-
-    <h3>DATABASES</h3>
-    <p>MongoDB, PostgreSQL, MySQL. Gestión eficiente de datos.</p>
+    <div class="skills-grid">
+        <div><h3>FRONTEND</h3><p>HTML5, CSS3, JS, React</p></div>
+        <div><h3>BACKEND</h3><p>Node.js, Python, Flask</p></div>
+    </div>
   </section>
 
-  <!-- Panel Proyectos -->
   <section id="proyectos" class="panel">
     <h2>📡 Proyectos</h2>
     <div class="project-list">
-      <a href="https://github.com/DiegoFdzOrtega/apex_combat" target="_blank" class="project">Apex_combat</a>
+      <a href="https://github.com/DiegoFdzOrtega/Dibujantes-scraper-web" target="_blank" class="project">Dibujantes-Scraper-Web</a>
       <a href="https://github.com/DiegoFdzOrtega/-Nutri-Scan-IA" target="_blank" class="project">Nutri-Scan-IA</a>
-      <a href="https://github.com/DiegoFdzOrtega/Dibujantes-scraper-web" class="project">Dibujantes-Scraper-Web</a>
     </div>
   </section>
 
-  <!-- Panel Contacto -->
   <section id="contacto" class="panel">
     <h2>📬 Contacto</h2>
     <div class="contact-icons">
-      <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/diegofdzortega/" target="_blank" title="LinkedIn">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
-      </a>
-      <!-- GitHub -->
-      <a href="https://github.com/DiegoFdzOrtega" target="_blank" title="GitHub">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
-      </a>
-      <!-- Email -->
-      <a href="mailto:diego@example.com" title="Enviar Email">
-        <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email">
-      </a>
+      <a href="https://github.com/DiegoFdzOrtega" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub"></a>
+      <a href="https://www.linkedin.com/in/diegofdzortega/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn"></a>
     </div>
   </section>
 
-  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>
