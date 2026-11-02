@@ -6,11 +6,18 @@
 <title>Diego Fernández Ortega | Desarrollador de aplicaciones multiplataforma</title>
 <meta name="description" content="Portfolio de Diego Fernández Ortega, estudiante de DAM en Bétera, Valencia. Proyectos con Python, PHP, Java, JavaScript e IA local. Disponible para prácticas.">
 <meta name="theme-color" content="#070B16">
+<meta name="author" content="Diego Fernández Ortega">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Diego Fernández Ortega | Desarrollador de aplicaciones multiplataforma">
+<meta property="og:description" content="Estudiante de DAM con experiencia en empresa. Proyectos con Python, PHP, Java, JavaScript e IA local.">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23070B16'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Segoe UI,Arial,sans-serif' font-size='28' font-weight='800' fill='%23EEF2FF'%3EDF%3C/text%3E%3Crect x='14' y='48' width='22' height='4' rx='2' fill='%23FFD166'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Diego Fernández Ortega","jobTitle":"Estudiante de Desarrollo de Aplicaciones Multiplataforma","email":"mailto:diegofo@outlook.es","address":{"@type":"PostalAddress","addressLocality":"Bétera","addressRegion":"Valencia","addressCountry":"ES"},"sameAs":["https://github.com/DiegoFdzOrtega","https://www.linkedin.com/in/diegofdzortega/"]}
+{"@context":"https://schema.org","@type":"Person","name":"Diego Fernández Ortega","jobTitle":"Estudiante de Desarrollo de Aplicaciones Multiplataforma","email":"mailto:diegofo@outlook.es","address":{"@type":"PostalAddress","addressLocality":"Bétera","addressRegion":"Valencia","addressCountry":"ES"},"sameAs":["https://github.com/DiegoFdzOrtega","https://www.linkedin.com/in/diegofdzortega/"],"alumniOf":{"@type":"EducationalOrganization","name":"TAME Mislata"},"knowsLanguage":["es","en"],"knowsAbout":["Python","PHP","Java","JavaScript","Linux","Ollama"]}
 </script>
 <script>
   /* Tema e idioma elegidos antes de pintar, para evitar parpadeos */
@@ -54,11 +61,15 @@
   .js .in.title::after,.js .in .title::after{transform:scaleX(1)}
   .sub{max-width:38rem;color:var(--muted);margin:1.5rem 0 2.25rem}
 
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .skip{position:fixed;left:1rem;top:-4rem;z-index:80;padding:.7rem 1.2rem;border-radius:999px;background:var(--accent);color:var(--on-accent);font-weight:600;text-decoration:none;transition:top .2s}
+  .skip:focus{top:1rem}
+
   .progress{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--mark));transform:scaleX(0);transform-origin:0 50%;z-index:70}
 
   /* Cabecera flotante */
   header.top{position:sticky;top:0;z-index:60;padding:calc(.75rem + env(safe-area-inset-top)) clamp(.75rem,3vw,1.5rem) 0;pointer-events:none}
-  .bar{pointer-events:auto;max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.5rem .55rem .5rem .6rem;
+  .bar{position:relative;pointer-events:auto;max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.5rem .55rem .5rem .6rem;
        border:1px solid var(--line);border-radius:999px;background:color-mix(in srgb,var(--bg) 68%,transparent);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4)}
   .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;font-family:var(--display);font-weight:700;letter-spacing:-.02em}
   .mono{width:2.4rem;height:2.4rem;border-radius:14px;display:grid;place-items:center;background:var(--ink);color:var(--bg);font-weight:800;font-size:.95rem;letter-spacing:-.03em;transition:transform .4s var(--ease)}
@@ -73,7 +84,18 @@
   html[lang="es"] .lang [data-l="es"],html[lang="en"] .lang [data-l="en"]{background:var(--ink);color:var(--bg)}
   .theme{width:2.4rem;height:2.4rem;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:transform .5s var(--ease),border-color .2s}
   .theme:hover{border-color:var(--accent);transform:rotate(180deg)}
-  @media (max-width:820px){nav.main{display:none}}
+  .menu{display:none;width:2.4rem;height:2.4rem;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);place-items:center;cursor:pointer}
+  .menu svg path{transition:transform .3s var(--ease),opacity .2s;transform-origin:12px 12px}
+  .bar.open .menu .l1{transform:translateY(5px) rotate(45deg)}
+  .bar.open .menu .l2{opacity:0}
+  .bar.open .menu .l3{transform:translateY(-5px) rotate(-45deg)}
+  @media (max-width:820px){
+    .menu{display:grid}
+    nav.main{display:none;position:absolute;left:0;right:0;top:calc(100% + .5rem);flex-direction:column;gap:.15rem;padding:.5rem;border:1px solid var(--line);border-radius:24px;
+             background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 24px 48px -24px rgba(0,0,0,.5)}
+    .bar.open nav.main{display:flex;animation:pop .3s var(--ease)}
+    nav.main a{padding:.85rem 1.1rem;font-size:1.05rem;border-radius:16px}
+  }
   @media (max-width:480px){.brand .name{display:none}}
 
   /* Estado */
@@ -108,9 +130,9 @@
   .btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
   .btn.primary:hover{background:var(--ink);border-color:var(--ink);color:var(--bg)}
   .btn.ghost:hover{background:var(--ink);color:var(--bg)}
-  .stats{display:flex;flex-wrap:wrap;gap:1rem 3rem;margin-top:3.25rem;padding-top:1.75rem;border-top:1px solid var(--line);max-width:36rem}
+  .stats{display:flex;flex-wrap:wrap;gap:1.25rem 2.5rem;margin-top:3.25rem;padding-top:1.75rem;border-top:1px solid var(--line);max-width:42rem}
   .stat b{display:block;font-family:var(--display);font-size:2.5rem;font-weight:800;letter-spacing:-.04em;line-height:1}
-  .stat span{color:var(--muted);font-size:.95rem;display:block;max-width:12rem;margin-top:.35rem;line-height:1.4}
+  .stat span{color:var(--muted);font-size:.95rem;display:block;max-width:10.5rem;margin-top:.35rem;line-height:1.4}
 
   .floaters{position:absolute;inset:0;pointer-events:none;z-index:1}
   .floaters span{position:absolute;padding:.55rem 1.15rem;border-radius:999px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg2) 80%,transparent);backdrop-filter:blur(8px);
@@ -142,14 +164,43 @@
   .skill:hover{transform:translateX(10px);border-color:var(--accent);background:var(--surface-hover)}
   .skill h3{font-size:1.25rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.3rem}
   .skill p{margin:0;color:var(--muted);font-size:1rem}
+  .facts{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.75rem;padding:0;list-style:none}
+  .facts li{padding:.35rem .95rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-size:.92rem;font-weight:500}
+  .facts b{color:var(--accent);font-weight:600}
   @media (max-width:860px){.about{grid-template-columns:1fr}}
 
   /* Proyectos */
   .projects-bg{background:var(--bg2)}
+
+  /* Destacados */
+  .featured{list-style:none;margin:0 0 clamp(3.5rem,8vw,5.5rem);padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+  @media (max-width:860px){.featured{grid-template-columns:1fr}}
+  .feat{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:28px;background:var(--surface);overflow:hidden;transition:transform .35s var(--ease),border-color .35s,box-shadow .35s}
+  .feat:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--accent) 60%,transparent);box-shadow:0 30px 60px -36px rgba(0,0,0,.6)}
+  .shot{position:relative;display:block;aspect-ratio:16/10;margin:.65rem .65rem 0;border-radius:20px;overflow:hidden;background:var(--bg);border:1px solid var(--line)}
+  .shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .7s var(--ease)}
+  .feat:hover .shot img{transform:scale(1.035)}
+  .shot .t-dark{display:none}
+  [data-theme="dark"] .shot .t-dark{display:block}
+  [data-theme="dark"] .shot .t-light{display:none}
+  .shot .badge{position:absolute;left:.8rem;top:.8rem;padding:.3rem .75rem;border-radius:999px;font-size:.78rem;font-weight:600;background:rgba(7,11,22,.72);color:#EEF2FF;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+  .feat-body{display:flex;flex-direction:column;gap:.75rem;padding:1.4rem 1.6rem 1.6rem;flex:1}
+  .kicker{font-size:.8rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--accent)}
+  .feat h3{font-size:clamp(1.6rem,3vw,2rem);font-weight:800;letter-spacing:-.035em}
+  .feat-body > p{margin:0;color:var(--muted)}
+  .points{margin:0;padding:0;list-style:none;display:grid;gap:.45rem;font-size:.97rem}
+  .points li{position:relative;padding-left:1.35rem}
+  .points li::before{content:"";position:absolute;left:0;top:.62em;width:.5rem;height:.5rem;border-radius:2px;background:var(--mark);transform:rotate(45deg)}
+  .feat .tags{margin-top:.2rem}
+  .feat-links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:auto;padding-top:.6rem}
+  .feat-links .btn{padding:.65rem 1.2rem;font-size:.95rem}
+
+  .more-title{font-family:var(--display);font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-.03em;margin:0 0 1.25rem}
   .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 2rem}
   .chip{font:inherit;font-weight:500;padding:.5rem 1.15rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s,transform .25s var(--ease)}
   .chip:hover{border-color:var(--accent);transform:translateY(-2px)}
   .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+  .chip[data-n]::after{content:attr(data-n);margin-left:.5rem;font-size:.78rem;font-weight:600;opacity:.6}
   .grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));grid-auto-flow:dense;gap:1rem}
   @media (min-width:800px){.grid .wide{grid-column:span 2}}
   .grid li[hidden]{display:none}
@@ -160,7 +211,8 @@
                   background:radial-gradient(280px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 22%,transparent),transparent 70%)}
   .card a:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--accent) 70%,transparent);box-shadow:0 24px 48px -28px rgba(0,0,0,.55)}
   .card a:hover::before{opacity:1}
-  .card h3{font-size:1.3rem;font-weight:700;letter-spacing:-.025em;overflow-wrap:anywhere;position:relative;padding-right:1.8rem}
+  .card a:focus-visible{border-color:var(--accent);outline-offset:4px;border-radius:24px}
+  .card h3{font-size:1.3rem;font-weight:700;letter-spacing:-.025em;overflow-wrap:break-word;position:relative;padding-right:1.8rem}
   .card p{margin:0;color:var(--muted);font-size:1rem;position:relative;flex:1}
   .go{position:absolute;top:1.5rem;right:1.4rem;width:1.15rem;height:1.15rem;color:var(--muted);transition:transform .3s var(--ease),color .3s}
   .card a:hover .go{transform:translate(4px,-4px);color:var(--accent)}
@@ -178,6 +230,10 @@
   .timeline h3{font-size:1.45rem;font-weight:700;letter-spacing:-.025em}
   .timeline .when{color:var(--accent);font-weight:600;font-size:.95rem;margin:.2rem 0 .5rem}
   .timeline p{margin:0;color:var(--muted)}
+  .timeline ul{margin:.6rem 0 0;padding-left:1.1rem;color:var(--muted)}
+  .timeline ul li{padding:0 0 .25rem}
+  .timeline ul li::before{display:none}
+  .timeline .kind{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:.35rem}
   .modules{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1rem}
   .modules span{padding:.3rem .9rem;border:1px solid var(--line);border-radius:999px;font-size:.9rem;background:var(--surface)}
 
@@ -187,7 +243,7 @@
   .panel > *{position:relative}
   .panel h2{font-size:clamp(2.4rem,6vw,4.2rem)}
   .panel .intro{color:var(--muted);margin:1.5rem 0 2rem;max-width:26rem}
-  .clist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+  .clist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15.5rem,1fr));gap:.8rem}
   .clist .full{grid-column:1/-1}
   .citem{display:flex;align-items:center;gap:.95rem;padding:1rem 1.1rem;border:1px solid var(--line);border-radius:20px;background:var(--surface);text-decoration:none;height:100%;transition:transform .3s var(--ease),border-color .3s,background .3s}
   .citem:hover{transform:translateY(-4px);border-color:var(--accent);background:var(--surface-hover)}
@@ -196,9 +252,23 @@
   .ico svg{width:1.3rem;height:1.3rem}
   .ctext{min-width:0}
   .ctext small{display:block;color:var(--muted);font-size:.82rem;line-height:1.2}
-  .ctext b{display:block;font-weight:600;overflow-wrap:anywhere;line-height:1.3;margin-top:.15rem}
+  .copy{position:absolute;right:1rem;top:50%;transform:translateY(-50%);font:inherit;font-size:.82rem;font-weight:600;padding:.4rem .8rem;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;transition:color .2s,border-color .2s}
+  .copy:hover{color:var(--ink);border-color:var(--accent)}
+  .citem-row{position:relative}
+  .citem-row .citem{padding-right:5.5rem}
+  .ctext b{display:block;font-weight:600;overflow-wrap:break-word;line-height:1.3;margin-top:.15rem}
   @media (max-width:900px){.panel{grid-template-columns:1fr}}
   @media (max-width:560px){.clist{grid-template-columns:1fr}}
+  .toast{position:fixed;left:50%;bottom:calc(1.5rem + env(safe-area-inset-bottom));transform:translate(-50%,calc(100% + 3rem));visibility:hidden;padding:.75rem 1.3rem;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:600;z-index:90;transition:transform .35s var(--ease)}
+  .toast.show{transform:translate(-50%,0);visibility:visible}
+
+  @media print{
+    .progress,header.top,#net,.orb,.floaters,.marquee,.filters,.actions,.cta-row,.more,.skip,.toast,.copy{display:none!important}
+    body{background:#fff;color:#000}
+    .hero{min-height:0;margin:0;padding:1rem 0}
+    section{padding:1.5rem 0}
+    .js .reveal{opacity:1;transform:none}
+  }
 
   footer{padding:1.75rem 0;color:var(--muted);font-size:.95rem;border-top:1px solid var(--line)}
   footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
@@ -218,6 +288,7 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#sobre-mi" data-en="Skip to content">Saltar al contenido</a>
 <div class="progress" id="progress" aria-hidden="true"></div>
 
 <header class="top">
@@ -226,16 +297,19 @@
       <span class="mono" aria-hidden="true">DF</span>
       <span class="name">Diego Fernández Ortega</span>
     </a>
-    <nav class="main" aria-label="Principal">
+    <nav class="main" id="menu-nav" aria-label="Principal" data-en-label="Main">
       <a href="#sobre-mi" data-en="About">Sobre mí</a>
       <a href="#proyectos" data-en="Projects">Proyectos</a>
       <a href="#trayectoria" data-en="Background">Trayectoria</a>
       <a href="#contacto" data-en="Contact">Contacto</a>
     </nav>
     <div class="tools">
-      <button class="lang" id="lang" type="button" aria-label="Cambiar idioma / Change language"><span data-l="es">ES</span><span data-l="en">EN</span></button>
-      <button class="theme" id="theme" type="button" aria-label="Cambiar tema / Switch theme">
+      <button class="lang" id="lang" type="button" aria-label="Cambiar idioma a inglés" data-en-label="Switch language to Spanish"><span data-l="es">ES</span><span data-l="en">EN</span></button>
+      <button class="theme" id="theme" type="button" aria-label="Cambiar entre tema claro y oscuro" data-en-label="Toggle light and dark theme">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
+      </button>
+      <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="menu-nav" aria-label="Abrir menú" data-en-label="Open menu">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg>
       </button>
     </div>
   </div>
@@ -248,32 +322,34 @@
     <canvas id="net" aria-hidden="true"></canvas>
     <div class="floaters" aria-hidden="true"><span>Python</span><span data-en="Local AI">IA local</span><span>PHP</span><span>Java</span></div>
     <div class="wrap">
-      <span class="status"><span class="dot" aria-hidden="true"></span><span data-en="Available for internships">Disponible para prácticas</span></span>
+      <span class="status"><span class="dot" aria-hidden="true"></span><span data-en="Open to new opportunities">Abierto a nuevas oportunidades</span></span>
       <h1><span>Diego</span><span><span class="hl">Fernández Ortega</span></span></h1>
-      <p class="role"><span data-en="I build ">Desarrollo </span><span class="typed" id="typed">aplicaciones web</span><span class="caret" aria-hidden="true"></span></p>
-      <p class="lead" data-en="Multiplatform Application Development student. I build complete tools, from server to screen, and I like AI that runs on my own machine.">Estudiante de Desarrollo de Aplicaciones Multiplataforma. Construyo herramientas completas, del servidor a la pantalla, y me gusta que la IA corra en mi propio equipo.</p>
+      <p class="role" aria-hidden="true"><span data-en="I build ">Desarrollo </span><span class="typed" id="typed">aplicaciones web</span><span class="caret"></span></p>
+      <p class="sr-only" data-en="I build web applications, component libraries, browser games, Python and PHP backends and tools powered by local AI.">Desarrollo aplicaciones web, librerías de componentes, juegos para el navegador, backend con Python y PHP y herramientas con IA local.</p>
+      <p class="lead" data-en="Multiplatform Application Development student with real company experience. I build complete tools, from server to screen, and I like AI that runs on my own machine.">Estudiante de Desarrollo de Aplicaciones Multiplataforma con experiencia real en empresa. Construyo herramientas completas, del servidor a la pantalla, y me gusta que la IA corra en mi propio equipo.</p>
       <div class="actions">
         <a class="btn primary" href="#proyectos" data-en="View my projects">Ver mis proyectos</a>
-        <a class="btn ghost" href="cv_diego_1.pdf" download>
+        <a class="btn ghost" href="cv_diego_1.pdf" download="CV_Diego_Fernandez_Ortega.pdf">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
           <span data-en="Download CV">Descargar CV</span></a>
         <a class="btn ghost" href="#contacto" data-en="Get in touch">Contactar</a>
       </div>
       <div class="stats">
         <div class="stat"><b data-count="50" data-suffix="+">0</b><span data-en="GitHub repositories">repositorios en GitHub</span></div>
-        <div class="stat"><b data-count="4">0</b><span data-en="languages: Python, PHP, Java and JavaScript">lenguajes: Python, PHP, Java y JavaScript</span></div>
+        <div class="stat"><b data-count="4">0</b><span data-en="months of internship as a developer">meses de prácticas como desarrollador</span></div>
+        <div class="stat"><b data-count="5">0</b><span data-en="years leading kitchen teams">años liderando equipos de cocina</span></div>
       </div>
     </div>
   </section>
 
   <div class="marquee" aria-label="Tecnologías / Technologies">
     <div class="track"><ul class="set">
-      <li>Python</li><li>PHP</li><li>Java</li><li>JavaScript</li><li>HTML5</li><li>CSS3</li><li>Flask</li><li>Node.js</li><li>XML</li>
+      <li>Python</li><li>PHP</li><li>Java</li><li>JavaScript</li><li>HTML5</li><li>CSS3</li><li>Flask</li><li>Node.js</li><li>MySQL</li><li>Web Components</li>
     </ul></div>
   </div>
   <div class="marquee rev" aria-hidden="true">
     <div class="track"><ul class="set">
-      <li>Ollama</li><li>Qwen 2.5</li><li>Apache</li><li>Linux</li><li>Git &amp; GitHub</li><li>Blender</li><li>A-Frame</li><li>Web scraping</li><li>IMAP</li>
+      <li>Ollama</li><li>Qwen 2.5</li><li>Apache</li><li>Linux</li><li>Git &amp; GitHub</li><li>Supabase</li><li>Canvas</li><li>Web Audio API</li><li>Vitest</li><li>Blender</li><li>Web scraping</li>
     </ul></div>
   </div>
 
@@ -281,14 +357,19 @@
     <div class="wrap about">
       <div class="reveal">
         <h2 class="title" data-en="About me">Sobre mí</h2>
-        <p data-en="I study DAM (Multiplatform Application Development) at Tame Formación. Almost all my projects start from a practical question: how do I automate this, how do I deploy it, how do I do it without paid services?">Estudio DAM en Tame Formación. Casi todos mis proyectos nacen de una pregunta práctica: cómo se automatiza esto, cómo se despliega, cómo se hace sin depender de servicios de pago.</p>
-        <p data-en="That's why I work a lot with AI that runs on my own machine and with tools that run on a simple server. I'm looking for a team where I can learn from experienced people and take on real tasks from day one.">Por eso trabajo mucho con IA que corre en mi propio equipo y con herramientas que se montan en un servidor sencillo. Busco un equipo donde aprender de gente con experiencia y asumir tareas reales desde el principio.</p>
+        <p data-en="I'm a Microcomputer Systems and Networks technician and I study DAM (Multiplatform Application Development) at TAME Mislata. Almost all my projects start from a practical question: how do I automate this, how do I deploy it, how do I do it without paid services?">Soy Técnico en Sistemas Microinformáticos y Redes y estudio DAM en TAME Mislata. Casi todos mis proyectos nacen de una pregunta práctica: cómo se automatiza esto, cómo se despliega, cómo se hace sin depender de servicios de pago.</p>
+        <p data-en="During my internship at Sodire I built an internal web app and supported customers by phone. Before that, five years running restaurant kitchens taught me something you don't learn in class: organization, staying calm under pressure and focusing on solving problems.">En mis prácticas en Sodire desarrollé una app web interna y di soporte a clientes por teléfono. Antes, cinco años al frente de cocinas me enseñaron algo que no se aprende en clase: organización, calma bajo presión y foco en resolver.</p>
+        <ul class="facts">
+          <li data-en="Spanish · native">Español · nativo</li>
+          <li data-en="English · B2">Inglés · B2</li>
+          <li data-en="Driving licence and own car">Carnet B y coche propio</li>
+        </ul>
       </div>
       <div class="skills">
         <div class="skill reveal"><h3 data-en="Backend and data">Backend y datos</h3><p data-en="Python with Flask, PHP, Java, scraping, email over IMAP, PDF and databases.">Python con Flask, PHP, Java, scraping, correo por IMAP, PDF y bases de datos.</p></div>
-        <div class="skill reveal"><h3>Web</h3><p data-en="HTML, CSS and vanilla JavaScript, no libraries: editors, presentation engines and vector drawing.">HTML, CSS y JavaScript nativo, sin librerías: editores, motores de presentaciones y dibujo vectorial.</p></div>
+        <div class="skill reveal"><h3>Web</h3><p data-en="HTML, CSS and vanilla JavaScript, no frameworks: component libraries, multimedia apps, canvas games and editors.">HTML, CSS y JavaScript nativo, sin frameworks: librerías de componentes, apps multimedia, juegos en canvas y editores.</p></div>
         <div class="skill reveal"><h3 data-en="Local AI">IA en local</h3><p data-en="Ollama and models like Qwen, fine-tuning and agents that plug into other tools.">Ollama y modelos como Qwen, fine-tuning y agentes que se integran con otras herramientas.</p></div>
-        <div class="skill reveal"><h3 data-en="Servers">Servidores</h3><p data-en="Linux deployment with Apache, microservices and log monitoring.">Despliegue en Linux con Apache, microservicios y monitorización de logs.</p></div>
+        <div class="skill reveal"><h3 data-en="Servers and IT support">Servidores y soporte IT</h3><p data-en="Linux deployment with Apache, microservices, log monitoring, networks and user support.">Despliegue en Linux con Apache, microservicios, monitorización de logs, redes y soporte al usuario.</p></div>
       </div>
     </div>
   </section>
@@ -296,7 +377,94 @@
   <section id="proyectos" class="projects-bg">
     <div class="wrap">
       <h2 class="title reveal" data-en="Projects">Proyectos</h2>
-      <p class="sub reveal" data-en="A selection of what I've built during my studies. Each card opens the repository on GitHub.">Una selección de lo que he construido durante el ciclo. Cada tarjeta abre el repositorio en GitHub.</p>
+      <p class="sub reveal" data-en="A selection of what I've built during my studies. These four are the ones I'm proudest of.">Una selección de lo que he construido durante el ciclo. Estos cuatro son de los que más orgulloso estoy.</p>
+
+      <ul class="featured">
+        <li class="feat reveal">
+          <a class="shot" href="https://diegofdzortega.github.io/diegofo-ui/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img class="t-light" src="img/diegofo-ui-claro.webp" width="1200" height="717" alt="" loading="lazy" decoding="async">
+            <img class="t-dark" src="img/diegofo-ui-oscuro.webp" width="1200" height="717" alt="" loading="lazy" decoding="async">
+            <span class="badge" data-en="Live demo">Demo en vivo</span>
+          </a>
+          <div class="feat-body">
+            <span class="kicker" data-en="Component library · Interface Development">Librería de componentes · Desarrollo de Interfaces</span>
+            <h3>diegofo-ui</h3>
+            <p data-en="15 accessible web components in plain JavaScript, built on Custom Elements and Shadow DOM. Zero dependencies and 16.8 KB gzipped.">15 componentes web accesibles en JavaScript puro, sobre Custom Elements y Shadow DOM. Sin dependencias y 16,8 KB con gzip.</p>
+            <ul class="points">
+              <li data-en="ARIA roles, focus trapped in modals and full keyboard navigation.">Roles ARIA, foco atrapado en los modales y manejo completo con teclado.</li>
+              <li data-en="Real form fields (form-associated custom elements) and TypeScript types.">Campos de formulario reales (form-associated custom elements) y tipos de TypeScript.</li>
+              <li data-en="154 automated tests with Vitest, run on every push with GitHub Actions.">154 pruebas automáticas con Vitest, ejecutadas en cada push con GitHub Actions.</li>
+            </ul>
+            <span class="tags"><i>JavaScript</i><i>Web Components</i><i>Vitest</i><i>esbuild</i></span>
+            <div class="feat-links">
+              <a class="btn primary" href="https://diegofdzortega.github.io/diegofo-ui/" target="_blank" rel="noopener" data-en="Docs and demo">Documentación y demo</a>
+              <a class="btn ghost" href="https://github.com/DiegoFdzOrtega/diegofo-ui" target="_blank" rel="noopener" data-en="Code">Código</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="feat reveal">
+          <a class="shot" href="https://github.com/DiegoFdzOrtega/champions-crown" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="img/champions-crown.webp" width="1200" height="675" alt="" loading="lazy" decoding="async">
+          </a>
+          <div class="feat-body">
+            <span class="kicker" data-en="Browser game · Personal project">Juego para navegador · Proyecto personal</span>
+            <h3>Champions Crown</h3>
+            <p data-en="Real-time 2D battle game inspired by Pokémon, drawn on canvas: over 80 JavaScript modules and around 19,000 lines without an engine.">Juego de combates 2D en tiempo real inspirado en Pokémon y dibujado sobre canvas: más de 80 módulos JavaScript y unas 19.000 líneas sin motor de juego.</p>
+            <ul class="points">
+              <li data-en="Online player-vs-player battles synced by lockstep: only inputs travel, with a shared random seed.">Combates online jugador contra jugador sincronizados por lockstep: solo viajan las pulsaciones, con una semilla de azar común.</li>
+              <li data-en="Accounts and cloud saves with Supabase, secured with Row Level Security.">Cuentas y guardado en la nube con Supabase, protegido con Row Level Security.</li>
+              <li data-en="Rival AI, attack effects drawn in code, shop, gacha and a full Pokédex.">IA de los rivales, efectos de ataque dibujados por código, tienda, gachapón y Pokédex completa.</li>
+            </ul>
+            <span class="tags"><i>JavaScript</i><i>Canvas</i><i>Supabase</i><i data-en="Multiplayer">Multijugador</i></span>
+            <div class="feat-links">
+              <a class="btn ghost" href="https://github.com/DiegoFdzOrtega/champions-crown" target="_blank" rel="noopener" data-en="Code">Código</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="feat reveal">
+          <a class="shot" href="https://github.com/DiegoFdzOrtega/Sonora" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="img/sonora.webp" width="1200" height="844" alt="" loading="lazy" decoding="async">
+          </a>
+          <div class="feat-body">
+            <span class="kicker" data-en="Multimedia app · Multimedia Programming">App multimedia · Programación multimedia</span>
+            <h3>Sonora</h3>
+            <p data-en="Music and video player built from scratch with HTML, CSS and JavaScript, no frameworks or libraries.">Reproductor de música y vídeo hecho desde cero con HTML, CSS y JavaScript, sin frameworks ni librerías.</p>
+            <ul class="points">
+              <li data-en="Reads ID3 tags and cover art, synced .lrc lyrics and .srt/.vtt subtitles.">Lee etiquetas ID3 y carátulas, letras sincronizadas .lrc y subtítulos .srt/.vtt.</li>
+              <li data-en="5-band equalizer and crossfade with the Web Audio API, plus WAV export.">Ecualizador de 5 bandas y fundido entre canciones con Web Audio API, y conversión a WAV.</li>
+              <li data-en="Records mic, camera or screen with MediaRecorder; library saved in IndexedDB.">Grabadora de micrófono, cámara o pantalla con MediaRecorder; biblioteca guardada en IndexedDB.</li>
+            </ul>
+            <span class="tags"><i>JavaScript</i><i>Web Audio API</i><i>MediaRecorder</i><i>IndexedDB</i></span>
+            <div class="feat-links">
+              <a class="btn ghost" href="https://github.com/DiegoFdzOrtega/Sonora" target="_blank" rel="noopener" data-en="Code">Código</a>
+            </div>
+          </div>
+        </li>
+
+        <li class="feat reveal">
+          <a class="shot" href="https://github.com/DiegoFdzOrtega/Crimson" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="img/crimson.webp" width="1200" height="750" alt="" loading="lazy" decoding="async">
+          </a>
+          <div class="feat-body">
+            <span class="kicker" data-en="ERP-CRM · Enterprise Management Systems">ERP-CRM · Sistemas de Gestión Empresarial</span>
+            <h3>Crimson</h3>
+            <p data-en="Business management system for customers, products, warehouse, orders and reports, built with PHP and MySQL.">Sistema de gestión empresarial para clientes, productos, almacén, pedidos e informes, hecho con PHP y MySQL.</p>
+            <ul class="points">
+              <li data-en="Reports with KPIs, comparison with the previous period and CSV and PDF export.">Informes con indicadores, comparación con el periodo anterior y exportación a CSV y PDF.</li>
+              <li data-en="User roles, audit log of every action, and database backup and restore.">Usuarios con perfiles, auditoría de cada acción y copias de seguridad con restauración.</li>
+              <li data-en="Automatic daily extraction with the Task Scheduler and performance analysis with EXPLAIN and indexes.">Extracción automática diaria con el Programador de tareas y análisis de rendimiento con EXPLAIN e índices.</li>
+            </ul>
+            <span class="tags"><i>PHP</i><i>MySQL</i><i>ERP</i></span>
+            <div class="feat-links">
+              <a class="btn ghost" href="https://github.com/DiegoFdzOrtega/Crimson" target="_blank" rel="noopener" data-en="Code">Código</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <h3 class="more-title reveal" data-en="More projects">Más proyectos</h3>
 
       <div class="filters reveal" role="group" aria-label="Filtrar proyectos / Filter projects">
         <button class="chip" type="button" data-filter="todos" aria-pressed="true" data-en="All">Todos</button>
@@ -399,6 +567,7 @@
           <p data-en="Web app to capture, view and save geographic coordinates in real time. Part of the DAM Cross-module Project.">Aplicación web para capturar, ver y guardar coordenadas geográficas en tiempo real. Parte del Proyecto Intermodular de DAM.</p>
           <span class="tags"><i>HTML</i><i>JavaScript</i></span></a></li>
       </ul>
+      <p class="sr-only" id="count" aria-live="polite"></p>
 
       <p class="more reveal"><a class="btn ghost" href="https://github.com/DiegoFdzOrtega?tab=repositories" data-en="See all repositories">Ver todos los repositorios</a></p>
     </div>
@@ -409,17 +578,42 @@
       <h2 class="title reveal" data-en="Background">Trayectoria</h2>
       <ol class="timeline">
         <li class="now reveal">
-          <h3 data-en="Looking for a development internship">Busco prácticas de desarrollo</h3>
+          <h3 data-en="Looking for my next step">Busco mi siguiente paso</h3>
           <p class="when" data-en="Now">Ahora</p>
-          <p data-en="I want to join a real team, learn from experienced people and take on tasks from day one.">Quiero entrar en un equipo real, aprender de gente con experiencia y asumir tareas desde el primer día.</p>
+          <p data-en="An internship or junior role in development or IT support, in a team where I can learn from experienced people and take on real tasks from day one.">Prácticas o un puesto junior en desarrollo o soporte IT, en un equipo donde aprender de gente con experiencia y asumir tareas reales desde el primer día.</p>
         </li>
         <li class="reveal">
-          <h3 data-en="Multiplatform Application Development (DAM)">Desarrollo de Aplicaciones Multiplataforma</h3>
-          <p class="when" data-en="Tame Formación, currently studying">Tame Formación, cursando actualmente</p>
-          <p data-en="I turned each module into projects you can see on GitHub.">He convertido cada módulo en proyectos que puedes ver en GitHub.</p>
+          <span class="kind" data-en="Education">Formación</span>
+          <h3 data-en="Higher VET in Multiplatform Application Development (DAM)">CFGS Desarrollo de Aplicaciones Multiplataforma</h3>
+          <p class="when" data-en="TAME Mislata, Valencia · in progress">TAME Mislata, Valencia · en curso</p>
+          <p data-en="Programming, web development, databases and APIs through practical projects. I turned each module into projects you can see on GitHub.">Programación, desarrollo web, bases de datos y APIs mediante proyectos prácticos. He convertido cada módulo en proyectos que puedes ver en GitHub.</p>
           <div class="modules">
-            <span data-en="Programming">Programación</span><span data-en="Development Environments">Entornos de Desarrollo</span><span data-en="Markup Languages">Lenguajes de Marcas</span><span data-en="Databases">Bases de Datos</span><span data-en="Computer Systems">Sistemas Informáticos</span><span data-en="Cross-module Project">Proyecto Intermodular</span>
+            <span data-en="Programming">Programación</span><span data-en="Development Environments">Entornos de Desarrollo</span><span data-en="Markup Languages">Lenguajes de Marcas</span><span data-en="Databases">Bases de Datos</span><span data-en="Computer Systems">Sistemas Informáticos</span><span data-en="Interface Development">Desarrollo de Interfaces</span><span data-en="Cross-module Project">Proyecto Intermodular</span>
           </div>
+        </li>
+        <li class="reveal">
+          <span class="kind" data-en="Experience">Experiencia</span>
+          <h3 data-en="Internship · Software development and support">Prácticas · Desarrollo y soporte de software</h3>
+          <p class="when">Sodire S.L. · Mar – Jun 2026</p>
+          <ul>
+            <li data-en="Built Sodire Onboarding, an internal web app that centralizes incidents, clients, schedules and records.">Desarrollo de Sodire Onboarding, app web interna que centraliza incidencias, clientes, horarios y registros.</li>
+            <li data-en="Designed new features from team feedback and fixed bugs.">Diseño de nuevas funcionalidades a partir del feedback del equipo y corrección de errores.</li>
+            <li data-en="Phone support for customers: diagnosing and solving incidents.">Soporte telefónico a clientes: diagnóstico y resolución de incidencias.</li>
+          </ul>
+        </li>
+        <li class="reveal">
+          <span class="kind" data-en="Education">Formación</span>
+          <h3 data-en="Intermediate VET in Microcomputer Systems and Networks (SMR)">CFGM Sistemas Microinformáticos y Redes</h3>
+          <p class="when">TAME Mislata, Valencia · 2025</p>
+          <div class="modules">
+            <span data-en="Hardware and assembly">Hardware y montaje</span><span data-en="Operating systems">Sistemas operativos</span><span data-en="Networks">Redes</span><span data-en="Basic security">Seguridad básica</span><span data-en="User support">Soporte al usuario</span>
+          </div>
+        </li>
+        <li class="reveal">
+          <span class="kind" data-en="Experience">Experiencia</span>
+          <h3 data-en="Kitchen manager">Encargado de cocina</h3>
+          <p class="when">Foster's Hollywood · The Fitzgerald Burger Co. · La Piazza · Saona · Nanami · 2020 – 2025</p>
+          <p data-en="Coordinated and led the kitchen team, organized service and kept times under control at peak hours without losing quality.">Coordinación y liderazgo del equipo de cocina, organización del servicio y control de tiempos en hora punta manteniendo la calidad.</p>
         </li>
       </ol>
     </div>
@@ -430,18 +624,19 @@
       <div class="panel reveal">
         <div>
           <h2 class="title" data-en="Contact">Contacto</h2>
-          <p class="intro" data-en="If your company offers development internships, write to me and I'll tell you what I can bring to the team.">Si tu empresa ofrece prácticas de desarrollo, escríbeme y te cuento lo que puedo aportar al equipo.</p>
+          <p class="intro" data-en="If your company is looking for someone for an internship or a junior role, write to me and I'll tell you what I can bring to the team.">Si tu empresa busca a alguien para prácticas o un puesto junior, escríbeme y te cuento lo que puedo aportar al equipo.</p>
           <div class="cta-row">
             <a class="btn primary" href="mailto:diegofo@outlook.es" data-en="Send an email">Enviar un correo</a>
-            <a class="btn ghost" href="cv_diego_1.pdf" download>
+            <a class="btn ghost" href="cv_diego_1.pdf" download="CV_Diego_Fernandez_Ortega.pdf">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>
               <span data-en="Download CV">Descargar CV</span></a>
           </div>
         </div>
         <ul class="clist">
-          <li><a class="citem" href="mailto:diegofo@outlook.es">
+          <li class="full citem-row"><a class="citem" href="mailto:diegofo@outlook.es">
             <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg></span>
-            <span class="ctext"><small data-en="Email">Correo</small><b>diegofo@outlook.es</b></span></a></li>
+            <span class="ctext"><small data-en="Email">Correo</small><b>diegofo@outlook.es</b></span></a>
+            <button class="copy" type="button" id="copy" data-en="Copy">Copiar</button></li>
           <li><a class="citem" href="tel:+34625862778">
             <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
             <span class="ctext"><small data-en="Phone">Teléfono</small><b>625 862 778</b></span></a></li>
@@ -460,6 +655,8 @@
   </section>
 </main>
 
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
 <footer>
   <div class="wrap"><span>© 2026 Diego Fernández Ortega</span><a href="#inicio" data-en="Back to top">Volver arriba</a></div>
 </footer>
@@ -469,6 +666,7 @@
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root = document.documentElement;
   var lang = root.getAttribute('lang') === 'en' ? 'en' : 'es';
+  var accent = getComputedStyle(root).getPropertyValue('--accent').trim();
 
   /* Textos del título y la descripción en cada idioma */
   var META = {
@@ -478,8 +676,8 @@
           desc: 'Portfolio of Diego Fernández Ortega, DAM student in Bétera, Valencia (Spain). Projects with Python, PHP, Java, JavaScript and local AI. Available for internships.' }
   };
   var PHRASES = {
-    es: ['aplicaciones web', 'backend con Python y PHP', 'herramientas con IA local', 'software en Java'],
-    en: ['web applications', 'Python and PHP backends', 'tools powered by local AI', 'Java software']
+    es: ['aplicaciones web', 'librerías de componentes', 'juegos para el navegador', 'backend con Python y PHP', 'herramientas con IA local'],
+    en: ['web applications', 'component libraries', 'browser games', 'Python and PHP backends', 'tools powered by local AI']
   };
   var typed = document.getElementById('typed');
   var pi = 0, pj = 0, del = false;
@@ -492,11 +690,16 @@
       if (el.dataset.es === undefined) { el.dataset.es = el.textContent; }
       el.textContent = l === 'en' ? el.dataset.en : el.dataset.es;
     });
+    document.querySelectorAll('[data-en-label]').forEach(function (el) {
+      if (el.dataset.esLabel === undefined) { el.dataset.esLabel = el.getAttribute('aria-label'); }
+      el.setAttribute('aria-label', l === 'en' ? el.dataset.enLabel : el.dataset.esLabel);
+    });
     document.title = META[l].title;
     var md = document.querySelector('meta[name="description"]');
     if (md) { md.setAttribute('content', META[l].desc); }
     pi = 0; pj = 0; del = false;
     if (reduce) { typed.textContent = PHRASES[l][0]; }
+    if (window.__menuLabel) { window.__menuLabel(); }
   }
   document.getElementById('lang').addEventListener('click', function () {
     var next = lang === 'es' ? 'en' : 'es';
@@ -512,7 +715,45 @@
     try { localStorage.setItem('tema', next); } catch (e) {}
     var m = document.querySelector('meta[name="theme-color"]');
     if (m) { m.setAttribute('content', next === 'dark' ? '#070B16' : '#F4F6FB'); }
+    accent = getComputedStyle(root).getPropertyValue('--accent').trim();
     if (reduce) { setTimeout(frame, 0); }
+  });
+
+  /* Menú móvil */
+  var barEl = document.querySelector('.bar'), menuBtn = document.getElementById('menu');
+  function setMenu(open) {
+    barEl.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    window.__menuLabel();
+  }
+  window.__menuLabel = function () {
+    var open = barEl.classList.contains('open');
+    menuBtn.setAttribute('aria-label', lang === 'en' ? (open ? 'Close menu' : 'Open menu') : (open ? 'Cerrar menú' : 'Abrir menú'));
+  };
+  menuBtn.removeAttribute('data-en-label');
+  window.__menuLabel();
+  menuBtn.addEventListener('click', function () { setMenu(!barEl.classList.contains('open')); });
+  document.querySelectorAll('nav.main a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && barEl.classList.contains('open')) { setMenu(false); menuBtn.focus(); } });
+  document.addEventListener('click', function (e) { if (!barEl.contains(e.target)) { setMenu(false); } });
+
+  /* Copiar correo */
+  var toast = document.getElementById('toast'), toastT = 0;
+  function showToast(msg) {
+    toast.textContent = msg; toast.classList.add('show');
+    clearTimeout(toastT); toastT = setTimeout(function () { toast.classList.remove('show'); }, 2200);
+  }
+  document.getElementById('copy').addEventListener('click', function () {
+    var mail = 'diegofo@outlook.es';
+    var ok = function () { showToast(lang === 'en' ? 'Email copied' : 'Correo copiado'); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(mail).then(ok, function () { showToast(mail); });
+    } else { showToast(mail); }
+  });
+
+  /* Nombres de proyecto: permitir el salto de línea tras "_" en vez de partir palabras */
+  document.querySelectorAll('.card h3').forEach(function (h) {
+    h.innerHTML = h.textContent.replace(/_/g, '_<wbr>');
   });
 
   /* Barra de progreso */
@@ -606,6 +847,12 @@
   /* Filtros de proyectos */
   var chips = document.querySelectorAll('.chip');
   var items = document.querySelectorAll('#lista li');
+  var countEl = document.getElementById('count');
+  chips.forEach(function (chip) {
+    var f = chip.getAttribute('data-filter'), n = 0;
+    items.forEach(function (li) { if (f === 'todos' || li.getAttribute('data-tags').split(' ').indexOf(f) !== -1) { n++; } });
+    chip.setAttribute('data-n', n);
+  });
   chips.forEach(function (chip) {
     chip.addEventListener('click', function () {
       var f = chip.getAttribute('data-filter');
@@ -616,6 +863,8 @@
         li.classList.remove('pop');
         if (show) { li.classList.add('in'); void li.offsetWidth; li.classList.add('pop'); }
       });
+      var n = chip.getAttribute('data-n');
+      countEl.textContent = lang === 'en' ? n + ' projects shown' : n + ' proyectos mostrados';
     });
   });
 
@@ -637,7 +886,7 @@
     }
   }
   function frame() {
-    var col = getComputedStyle(root).getPropertyValue('--accent').trim();
+    var col = accent;
     ctx.clearRect(0, 0, w, h);
     ctx.fillStyle = col; ctx.strokeStyle = col; ctx.lineWidth = 1;
     for (var i = 0; i < pts.length; i++) {
@@ -664,7 +913,7 @@
       }
     }
     ctx.globalAlpha = 1;
-    if (!reduce && visible) { raf = requestAnimationFrame(frame); }
+    if (!reduce && visible && !document.hidden) { raf = requestAnimationFrame(frame); }
   }
   size(); frame();
   window.addEventListener('resize', function () { size(); if (reduce) { frame(); } });
@@ -680,6 +929,9 @@
         if (visible) { cancelAnimationFrame(raf); raf = requestAnimationFrame(frame); }
       }).observe(hero);
     }
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden && visible) { cancelAnimationFrame(raf); raf = requestAnimationFrame(frame); }
+    });
   }
 })();
 </script>
