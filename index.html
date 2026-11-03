@@ -195,6 +195,17 @@
   .feat-links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:auto;padding-top:.6rem}
   .feat-links .btn{padding:.65rem 1.2rem;font-size:.95rem}
 
+  /* Juegos */
+  .games{list-style:none;margin:0 0 clamp(3.5rem,8vw,5.5rem);padding:0;display:grid;gap:1.25rem}
+  @media (min-width:900px){
+    .feat.horiz{display:grid;grid-template-columns:1.35fr 1fr;align-items:stretch}
+    .feat.horiz .shot{margin:.65rem;aspect-ratio:auto;min-height:20rem;background:#0A0C17}
+    .feat.horiz .shot img{position:absolute;inset:0}
+    .feat.horiz .shot img{object-fit:contain;object-position:center}
+    .feat.horiz .feat-body{padding:1.8rem 1.8rem 1.8rem .6rem}
+  }
+  .section-lead{color:var(--muted);margin:-.5rem 0 1.5rem;max-width:38rem}
+
   .more-title{font-family:var(--display);font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-.03em;margin:0 0 1.25rem}
   .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 2rem}
   .chip{font:inherit;font-weight:500;padding:.5rem 1.15rem;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s,transform .25s var(--ease)}
@@ -325,7 +336,7 @@
       <span class="status"><span class="dot" aria-hidden="true"></span><span data-en="Open to new opportunities">Abierto a nuevas oportunidades</span></span>
       <h1><span>Diego</span><span><span class="hl">Fernández Ortega</span></span></h1>
       <p class="role" aria-hidden="true"><span data-en="I build ">Desarrollo </span><span class="typed" id="typed">aplicaciones web</span><span class="caret"></span></p>
-      <p class="sr-only" data-en="I build web applications, component libraries, browser games, Python and PHP backends and tools powered by local AI.">Desarrollo aplicaciones web, librerías de componentes, juegos para el navegador, backend con Python y PHP y herramientas con IA local.</p>
+      <p class="sr-only" data-en="I build web applications, component libraries, my own databases and ORMs, Python and PHP backends and tools powered by local AI.">Desarrollo aplicaciones web, librerías de componentes, bases de datos y ORM propios, backend con Python y PHP y herramientas con IA local.</p>
       <p class="lead" data-en="Multiplatform Application Development student with real company experience. I build complete tools, from server to screen, and I like AI that runs on my own machine.">Estudiante de Desarrollo de Aplicaciones Multiplataforma con experiencia real en empresa. Construyo herramientas completas, del servidor a la pantalla, y me gusta que la IA corra en mi propio equipo.</p>
       <div class="actions">
         <a class="btn primary" href="#proyectos" data-en="View my projects">Ver mis proyectos</a>
@@ -349,7 +360,7 @@
   </div>
   <div class="marquee rev" aria-hidden="true">
     <div class="track"><ul class="set">
-      <li>Ollama</li><li>Qwen 2.5</li><li>Apache</li><li>Linux</li><li>Git &amp; GitHub</li><li>Supabase</li><li>Canvas</li><li>Web Audio API</li><li>Vitest</li><li>Blender</li><li>Web scraping</li>
+      <li>Ollama</li><li>Qwen 2.5</li><li>Apache</li><li>Linux</li><li>Git &amp; GitHub</li><li>C++</li><li>Flask</li><li>Canvas</li><li>Supabase</li><li>Web Audio API</li><li>Vitest</li><li>Blender</li><li>Web scraping</li>
     </ul></div>
   </div>
 
@@ -366,8 +377,8 @@
         </ul>
       </div>
       <div class="skills">
-        <div class="skill reveal"><h3 data-en="Backend and data">Backend y datos</h3><p data-en="Python with Flask, PHP, Java, scraping, email over IMAP, PDF and databases.">Python con Flask, PHP, Java, scraping, correo por IMAP, PDF y bases de datos.</p></div>
-        <div class="skill reveal"><h3>Web</h3><p data-en="HTML, CSS and vanilla JavaScript, no frameworks: component libraries, multimedia apps, canvas games and editors.">HTML, CSS y JavaScript nativo, sin frameworks: librerías de componentes, apps multimedia, juegos en canvas y editores.</p></div>
+        <div class="skill reveal"><h3 data-en="Backend and data">Backend y datos</h3><p data-en="Python with Flask, PHP, Java, my own SQL engine in C++ and ORM, scraping and databases.">Python con Flask, PHP, Java, motor SQL propio en C++ y ORM, scraping y bases de datos.</p></div>
+        <div class="skill reveal"><h3>Web</h3><p data-en="HTML, CSS and vanilla JavaScript, no frameworks: component libraries, multimedia apps and editors.">HTML, CSS y JavaScript nativo, sin frameworks: librerías de componentes, apps multimedia y editores.</p></div>
         <div class="skill reveal"><h3 data-en="Local AI">IA en local</h3><p data-en="Ollama and models like Qwen, fine-tuning and agents that plug into other tools.">Ollama y modelos como Qwen, fine-tuning y agentes que se integran con otras herramientas.</p></div>
         <div class="skill reveal"><h3 data-en="Servers and IT support">Servidores y soporte IT</h3><p data-en="Linux deployment with Apache, microservices, log monitoring, networks and user support.">Despliegue en Linux con Apache, microservicios, monitorización de logs, redes y soporte al usuario.</p></div>
       </div>
@@ -404,24 +415,21 @@
         </li>
 
         <li class="feat reveal">
-          <a class="shot" href="https://diegofdzortega.github.io/champions-crown/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
-            <img src="img/champions-crown.webp" width="1200" height="675" alt="" loading="lazy" decoding="async">
-          
-            <span class="badge" data-en="Live demo">Demo en vivo</span>
+          <a class="shot" href="https://github.com/DiegoFdzOrtega/diegofo-club-manager" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="img/estadio.webp" width="1200" height="750" alt="" loading="lazy" decoding="async">
           </a>
           <div class="feat-body">
-            <span class="kicker" data-en="Browser game · Personal project">Juego para navegador · Proyecto personal</span>
-            <h3>Champions Crown</h3>
-            <p data-en="Real-time 2D battle game inspired by Pokémon, drawn on canvas: over 80 JavaScript modules and around 19,000 lines without an engine.">Juego de combates 2D en tiempo real inspirado en Pokémon y dibujado sobre canvas: más de 80 módulos JavaScript y unas 19.000 líneas sin motor de juego.</p>
+            <span class="kicker" data-en="Management software · Data Access">Software de gestión · Acceso a datos</span>
+            <h3>estadio · Club Manager</h3>
+            <p data-en="Management software for a sports centre, built from the ground up: my own relational database in C++, my own ORM in Python and a Flask web app for the staff.">Gestión de un polideportivo hecha de arriba abajo: base de datos relacional propia en C++, ORM propio en Python y una web en Flask para los trabajadores.</p>
             <ul class="points">
-              <li data-en="Online player-vs-player battles synced by lockstep: only inputs travel, with a shared random seed.">Combates online jugador contra jugador sincronizados por lockstep: solo viajan las pulsaciones, con una semilla de azar común.</li>
-              <li data-en="Accounts and cloud saves with Supabase, secured with Row Level Security.">Cuentas y guardado en la nube con Supabase, protegido con Row Level Security.</li>
-              <li data-en="Rival AI, attack effects drawn in code, shop, gacha and a full Pokédex.">IA de los rivales, efectos de ataque dibujados por código, tienda, gachapón y Pokédex completa.</li>
+              <li data-en="SQL engine in C++ with JOIN, GROUP BY, foreign keys, transactions and stored procedures.">Motor SQL en C++ con JOIN, GROUP BY, claves foráneas, transacciones y procedimientos almacenados.</li>
+              <li data-en="ORM with unit of work, identity map, two-way relationships, validations and migrations.">ORM con unidad de trabajo, mapa de identidad, relaciones en los dos sentidos, validaciones y migraciones.</li>
+              <li data-en="Roles with server-side permissions, PBKDF2 passwords, court bookings, fees, shop and cash desk.">Roles con permisos comprobados en el servidor, contraseñas con PBKDF2, reservas de pistas, cuotas, tienda y caja.</li>
             </ul>
-            <span class="tags"><i>JavaScript</i><i>Canvas</i><i>Supabase</i><i data-en="Multiplayer">Multijugador</i></span>
+            <span class="tags"><i>C++</i><i>Python</i><i>Flask</i><i>SQL</i></span>
             <div class="feat-links">
-              <a class="btn primary" href="https://diegofdzortega.github.io/champions-crown/" target="_blank" rel="noopener" data-en="Play">Jugar</a>
-              <a class="btn ghost" href="https://github.com/DiegoFdzOrtega/champions-crown" target="_blank" rel="noopener" data-en="Code">Código</a>
+              <a class="btn ghost" href="https://github.com/DiegoFdzOrtega/diegofo-club-manager" target="_blank" rel="noopener" data-en="Code">Código</a>
             </div>
           </div>
         </li>
@@ -465,6 +473,32 @@
             <span class="tags"><i>PHP</i><i>MySQL</i><i>ERP</i></span>
             <div class="feat-links">
               <a class="btn ghost" href="https://github.com/DiegoFdzOrtega/Crimson" target="_blank" rel="noopener" data-en="Code">Código</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <h3 class="more-title reveal" data-en="Games">Juegos</h3>
+      <p class="section-lead reveal" data-en="What I build in my spare time to learn real-time graphics, game AI and online multiplayer.">Lo que hago en mi tiempo libre para aprender gráficos en tiempo real, IA de juegos y multijugador online.</p>
+      <ul class="games">
+        <li class="feat horiz reveal">
+          <a class="shot" href="https://diegofdzortega.github.io/champions-crown/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="img/champions-crown.webp" width="1200" height="797" alt="" loading="lazy" decoding="async">
+            <span class="badge" data-en="Live demo">Demo en vivo</span>
+          </a>
+          <div class="feat-body">
+            <span class="kicker" data-en="Browser game · Personal project">Juego para navegador · Proyecto personal</span>
+            <h3>Champions Crown</h3>
+            <p data-en="Real-time 2D battle game inspired by Pokémon, drawn on canvas: over 80 JavaScript modules and around 19,000 lines without an engine.">Juego de combates 2D en tiempo real inspirado en Pokémon y dibujado sobre canvas: más de 80 módulos JavaScript y unas 19.000 líneas sin motor de juego.</p>
+            <ul class="points">
+              <li data-en="Online player-vs-player battles synced by lockstep: only inputs travel, with a shared random seed.">Combates online jugador contra jugador sincronizados por lockstep: solo viajan las pulsaciones, con una semilla de azar común.</li>
+              <li data-en="Accounts and cloud saves with Supabase, secured with Row Level Security.">Cuentas y guardado en la nube con Supabase, protegido con Row Level Security.</li>
+              <li data-en="Rival AI, attack effects drawn in code, leagues, shop, gacha and achievements.">IA de los rivales, efectos de ataque dibujados por código, ligas, tienda, gachapón y logros.</li>
+            </ul>
+            <span class="tags"><i>JavaScript</i><i>Canvas</i><i>Supabase</i><i data-en="Multiplayer">Multijugador</i></span>
+            <div class="feat-links">
+              <a class="btn primary" href="https://diegofdzortega.github.io/champions-crown/" target="_blank" rel="noopener" data-en="Play">Jugar</a>
+              <a class="btn ghost" href="https://github.com/DiegoFdzOrtega/champions-crown" target="_blank" rel="noopener" data-en="Code">Código</a>
             </div>
           </div>
         </li>
@@ -634,8 +668,8 @@
           desc: 'Portfolio of Diego Fernández Ortega, DAM student in Bétera, Valencia (Spain). Projects with Python, PHP, Java, JavaScript and local AI. Available for internships.' }
   };
   var PHRASES = {
-    es: ['aplicaciones web', 'librerías de componentes', 'juegos para el navegador', 'backend con Python y PHP', 'herramientas con IA local'],
-    en: ['web applications', 'component libraries', 'browser games', 'Python and PHP backends', 'tools powered by local AI']
+    es: ['aplicaciones web', 'librerías de componentes', 'bases de datos y ORM propios', 'juegos para el navegador', 'backend con Python y PHP', 'herramientas con IA local'],
+    en: ['web applications', 'component libraries', 'my own databases and ORMs', 'browser games', 'Python and PHP backends', 'tools powered by local AI']
   };
   var typed = document.getElementById('typed');
   var pi = 0, pj = 0, del = false;
