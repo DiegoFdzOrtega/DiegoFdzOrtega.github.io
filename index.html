@@ -195,6 +195,22 @@
   .feat-links{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:auto;padding-top:.6rem}
   .feat-links .btn{padding:.65rem 1.2rem;font-size:.95rem}
 
+  /* Kura: tarjeta ancha con móviles */
+  .featured > .span{grid-column:1/-1}
+  .shot.phones{display:flex;justify-content:center;align-items:flex-start;gap:4%;padding:2rem 6% 0;
+    background:radial-gradient(120% 90% at 50% 0%,#14B8A6 0%,#0F766E 45%,#0B3B38 100%);border-color:transparent}
+  .shot.phones img,.feat.horiz .shot.phones img{position:static;width:27%;height:auto;object-fit:initial;border-radius:18px;
+    box-shadow:0 24px 40px -18px rgba(0,0,0,.55);border:3px solid rgba(255,255,255,.18)}
+  .shot.phones img:nth-child(2){margin-top:-1rem}
+  .shot.phones img:nth-child(1),.shot.phones img:nth-child(3){margin-top:1.75rem}
+  .feat:hover .shot.phones img{transform:translateY(-6px)}
+  .shot.phones .badge{position:absolute}
+  .feat.horiz .shot.phones{background:radial-gradient(120% 90% at 50% 0%,#14B8A6 0%,#0F766E 45%,#0B3B38 100%)}
+  @media (min-width:900px){
+    .feat.horiz .shot.phones{min-height:30rem;align-items:center;padding:2rem 5%}
+    .feat.horiz .shot.phones img{width:30%}
+  }
+
   /* Juegos */
   .games{list-style:none;margin:0 0 clamp(3.5rem,8vw,5.5rem);padding:0;display:grid;gap:1.25rem}
   @media (min-width:900px){
@@ -360,7 +376,7 @@
   </div>
   <div class="marquee rev" aria-hidden="true">
     <div class="track"><ul class="set">
-      <li>Ollama</li><li>Qwen 2.5</li><li>Apache</li><li>Linux</li><li>Git &amp; GitHub</li><li>C++</li><li>Flask</li><li>Canvas</li><li>Supabase</li><li>Web Audio API</li><li>Vitest</li><li>Blender</li><li>Web scraping</li>
+      <li>Ollama</li><li>Qwen 2.5</li><li>Apache</li><li>Linux</li><li>Git &amp; GitHub</li><li>PWA</li><li>Cloudflare Workers</li><li>C++</li><li>Flask</li><li>Canvas</li><li>Supabase</li><li>Web Audio API</li><li>Vitest</li><li>Blender</li><li>Web scraping</li>
     </ul></div>
   </div>
 
@@ -388,9 +404,32 @@
   <section id="proyectos" class="projects-bg">
     <div class="wrap">
       <h2 class="title reveal" data-en="Projects">Proyectos</h2>
-      <p class="sub reveal" data-en="A selection of what I've built during my studies. These four are the ones I'm proudest of.">Una selección de lo que he construido durante el ciclo. Estos cuatro son de los que más orgulloso estoy.</p>
+      <p class="sub reveal" data-en="A selection of what I've built during my studies. These five are the ones I'm proudest of.">Una selección de lo que he construido durante el ciclo. Estos cinco son de los que más orgulloso estoy.</p>
 
       <ul class="featured">
+        <li class="feat horiz span reveal">
+          <a class="shot phones" href="https://diegofdzortega.github.io/Kura/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img src="img/kura-hoy.webp" width="480" height="1041" alt="" loading="lazy" decoding="async">
+            <img src="img/kura-buscador.webp" width="480" height="1041" alt="" loading="lazy" decoding="async">
+            <img src="img/kura-oscuro.webp" width="480" height="1041" alt="" loading="lazy" decoding="async">
+            <span class="badge" data-en="New">Nuevo</span>
+          </a>
+          <div class="feat-body">
+            <span class="kicker" data-en="Mobile and web app · PWA">App móvil y web · PWA</span>
+            <h3>Kura</h3>
+            <p data-en="App to log your medicines and tick off every dose, also built for people who look after someone else. It installs on iPhone and Android and works offline.">App para apuntar tus medicamentos y marcar cada toma, pensada también para quien cuida de otras personas. Se instala en iPhone y Android y funciona sin conexión.</p>
+            <ul class="points">
+              <li data-en="Official AEMPS (CIMA) search and box barcode scanner: the medicine fills itself in, with leaflet and photo.">Buscador oficial de la AEMPS (CIMA) y escáner del código de la caja: el medicamento se rellena solo, con prospecto y foto.</li>
+              <li data-en="Reminders with the app closed, on iPhone too: Web Push written by hand with WebCrypto and a Cloudflare Workers server with D1.">Avisos con la app cerrada, también en iPhone: Web Push implementado a mano con WebCrypto y un servidor en Cloudflare Workers con D1.</li>
+              <li data-en="History with an adherence calendar, stock control, several people and a large-text mode.">Historial con calendario de cumplimiento, control de existencias, varias personas y modo de letra grande.</li>
+            </ul>
+            <span class="tags"><i>JavaScript</i><i>PWA</i><i>Web Push</i><i>Cloudflare Workers</i><i>Capacitor</i></span>
+            <div class="feat-links">
+              <a class="btn primary" href="https://diegofdzortega.github.io/Kura/" target="_blank" rel="noopener" data-en="Try the app">Probar la app</a>
+              <a class="btn ghost" href="https://github.com/DiegoFdzOrtega/kura" target="_blank" rel="noopener" data-en="Code">Código</a>
+            </div>
+          </div>
+        </li>
         <li class="feat reveal">
           <a class="shot" href="https://diegofdzortega.github.io/diegofo-ui/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
             <img class="t-light" src="img/diegofo-ui-claro.webp" width="1200" height="717" alt="" loading="lazy" decoding="async">
@@ -668,8 +707,8 @@
           desc: 'Portfolio of Diego Fernández Ortega, DAM student in Bétera, Valencia (Spain). Projects with Python, PHP, Java, JavaScript and local AI. Available for internships.' }
   };
   var PHRASES = {
-    es: ['aplicaciones web', 'librerías de componentes', 'bases de datos y ORM propios', 'juegos para el navegador', 'backend con Python y PHP', 'herramientas con IA local'],
-    en: ['web applications', 'component libraries', 'my own databases and ORMs', 'browser games', 'Python and PHP backends', 'tools powered by local AI']
+    es: ['aplicaciones web', 'apps para el móvil', 'librerías de componentes', 'bases de datos y ORM propios', 'juegos para el navegador', 'backend con Python y PHP', 'herramientas con IA local'],
+    en: ['web applications', 'mobile apps', 'component libraries', 'my own databases and ORMs', 'browser games', 'Python and PHP backends', 'tools powered by local AI']
   };
   var typed = document.getElementById('typed');
   var pi = 0, pj = 0, del = false;
